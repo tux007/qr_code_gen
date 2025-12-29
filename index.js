@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Direkt-Öffnen Button
     const openDirectBtn = document.getElementById('openDirectBtn');
+    const clearBtn = document.getElementById('clearBtn');
     let currentData = null;
     let currentType = null;
 
@@ -116,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 currentData = userData;
                 currentType = selectedType;
                 openDirectBtn.style.display = 'block';
+                clearBtn.style.display = 'block';
                 
                 // URL nach einiger Zeit freigeben
                 setTimeout(() => URL.revokeObjectURL(qrImage.src), 60000);
@@ -149,5 +151,26 @@ document.addEventListener("DOMContentLoaded", function() {
             
             showAlert('vCard wird heruntergeladen. Öffnen Sie die Datei, um den Kontakt zu speichern.');
         }
+    });
+
+    // Clear Funktionalität
+    clearBtn.addEventListener('click', () => {
+        // Leere alle Input-Felder
+        user_url.value = '';
+        user_name.value = '';
+        user_email.value = '';
+        user_phone.value = '';
+        user_url_vcard.value = '';
+        
+        // Setze QR-Code Bild zurück
+        qrImage.src = '';
+        
+        // Verstecke Buttons
+        openDirectBtn.style.display = 'none';
+        clearBtn.style.display = 'none';
+        
+        // Setze gespeicherte Daten zurück
+        currentData = null;
+        currentType = null;
     });
 });

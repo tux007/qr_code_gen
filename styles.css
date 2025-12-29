@@ -120,6 +120,23 @@ body{
 .open-direct:hover{
     background-color: #059669;
 }
+.clear-btn{
+    background-color: #EF4444;
+    color:white;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 0.6rem;
+    height: 2.7rem;
+    width:100%;
+    border:none;
+    outline:none;
+    border-radius: 0.7rem;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+}
+.clear-btn:hover{
+    background-color: #DC2626;
+}
 .qr-canvas{
     background-color: white;
     height: 15rem;
