@@ -129,8 +129,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // Direkt-Öffnen Funktionalität
     openDirectBtn.addEventListener('click', () => {
         if(currentType === 'url') {
-            // URL direkt öffnen
-            window.open(currentData, '_blank');
+            // URL direkt öffnen - stelle sicher, dass Protokoll vorhanden ist
+            let urlToOpen = currentData;
+            if(!urlToOpen.match(/^https?:\/\//i)) {
+                urlToOpen = 'https://' + urlToOpen;
+            }
+            window.open(urlToOpen, '_blank');
         } else if(currentType === 'vcard') {
             // vCard als .vcf Datei zum Download anbieten
             const blob = new Blob([currentData], { type: 'text/vcard;charset=utf-8' });
