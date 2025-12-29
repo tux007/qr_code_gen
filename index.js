@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 let response = await fetch(imgSrc);
                 let data = await response.blob();
                 qrImage.src = URL.createObjectURL(data);
+                qrImage.style.display = 'block';
                 loading.style.display = 'none';
                 
                 // Speichere aktuelle Daten und Typ für direktes Öffnen
@@ -164,6 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Setze QR-Code Bild zurück
         qrImage.src = '';
+        qrImage.style.display = 'none';
         
         // Verstecke Buttons
         openDirectBtn.style.display = 'none';
