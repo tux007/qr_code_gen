@@ -174,14 +174,10 @@ body{
     animation: slideIn 0.3s ease;
 }
 
-.alert-icon{
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
 .alert-message{
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
+    margin-top: 0;
     line-height: 1.5;
     color: white;
 }
@@ -227,10 +223,6 @@ body{
     .alert-box{
         padding: 1.5rem;
         width: 90%;
-    }
-    
-    .alert-icon{
-        font-size: 2.5rem;
     }
     
     .alert-message{
