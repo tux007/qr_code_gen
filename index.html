@@ -1,55 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QR Code Generator</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
-    <link rel = "stylesheet" href="./styles.css">
-    <link rel="icon" href="./assets/qr-code-64.png" type="image/x-icon">
-</head>
-<body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+      integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      defer
+    ></script>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./assets/qr-code-64.png" type="image/x-icon" />
+  </head>
+  <body>
     <div class="container">
-        <div class="user-data">
-            <h2>QR Code Generator</h2>
-            <div class="qr-type-selector">
-                <label>
-                    <input type="radio" name="qr-type" value="url" class="qr-type-radio" checked>
-                    <span>URL</span>
-                </label>
-                <label>
-                    <input type="radio" name="qr-type" value="vcard" class="qr-type-radio">
-                    <span>vCard</span>
-                </label>
-            </div>
-            <div class="url-fields">
-                <input type="url" class="user-url input" placeholder="Enter your URL...">
-            </div>
-            <div class="vcard-fields">
-                <input type="text" class="user-name input" placeholder="Enter your name...">
-                <input type="email" class="user-email input" placeholder="Enter your email...">
-                <input type="tel" class="user-phone input" placeholder="Enter your phone number...">
-                <input type="url" class="user-url-vcard input" placeholder="Enter your URL (optional)...">
-            </div>
-            <button class="generate-qr-code">Generate QR code</button>
-            <button class="open-direct" id="openDirectBtn" style="display:none;">📱 Direkt öffnen</button>
-            <button class="clear-btn" id="clearBtn" style="display:none;">🗑️ Clear</button>
+      <div class="user-data">
+        <h2>QR Code Generator</h2>
+        <div class="qr-type-selector">
+          <label>
+            <input
+              type="radio"
+              name="qr-type"
+              value="url"
+              class="qr-type-radio"
+              checked
+            />
+            <span>URL</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="qr-type"
+              value="vcard"
+              class="qr-type-radio"
+            />
+            <span>vCard</span>
+          </label>
         </div>
-        <div class="qr-canvas">
-            <h2>QR code</h2>
-            <div class="loading"></div>
-            <img src="" alt="" class="qr-image">
+        <div class="url-fields">
+          <input
+            type="url"
+            class="user-url input"
+            placeholder="Enter your URL..."
+          />
         </div>
+        <div class="vcard-fields">
+          <input
+            type="text"
+            class="user-name input"
+            placeholder="Enter your name..."
+          />
+          <input
+            type="email"
+            class="user-email input"
+            placeholder="Enter your email..."
+          />
+          <input
+            type="tel"
+            class="user-phone input"
+            placeholder="Enter your phone number..."
+          />
+          <input
+            type="url"
+            class="user-url-vcard input"
+            placeholder="Enter your URL (optional)..."
+          />
+        </div>
+        <button class="generate-qr-code">Generate QR code</button>
+        <button class="open-direct" id="openDirectBtn" style="display: none">
+          📱 Direkt öffnen
+        </button>
+        <button class="clear-btn" id="clearBtn" style="display: none">
+          🗑️ Clear
+        </button>
+      </div>
+      <div class="qr-canvas">
+        <h2>QR code</h2>
+        <div class="loading"></div>
+        <img src="" alt="" class="qr-image" />
+      </div>
     </div>
 
-    <!-- Custom Alert Overlay -->
     <div class="alert-overlay" id="alertOverlay">
-        <div class="alert-box">
-            <p class="alert-message" id="alertMessage"></p>
-            <button class="alert-close" id="alertClose">OK</button>
-        </div>
+      <div class="alert-box">
+        <p class="alert-message" id="alertMessage"></p>
+        <button class="alert-close" id="alertClose">OK</button>
+      </div>
     </div>
 
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
