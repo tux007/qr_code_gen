@@ -21,6 +21,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const user_phone = document.querySelector('.user-phone');
     const user_url_vcard = document.querySelector('.user-url-vcard');
 
+    // Direkt-Öffnen Button
+    const openDirectBtn = document.getElementById('openDirectBtn');
+    let currentData = null;
+    let currentType = null;
+
     // Custom Alert Funktion
     function showAlert(message) {
         alertMessage.textContent = message;
@@ -107,6 +112,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 qrImage.src = URL.createObjectURL(data);
                 loading.style.display = 'none';
                 
+                // Speichere aktuelle Daten und Typ für direktes Öffnen
+                currentData = userData;
+                currentType = selectedType;
+                openDirectBtn.style.display = 'block';
+                
                 // URL nach einiger Zeit freigeben
                 setTimeout(() => URL.revokeObjectURL(qrImage.src), 60000);
             } catch(error) {
@@ -115,4 +125,25 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     };
+
+    // Direkt-Öffnen Funktionalität
+    openDirectBtn.addEventListener('click', () => {
+        if(currentType === 'url') {
+            // URL direkt öffnen
+            window.open(currentData, '_blank');
+        } else if(currentType === 'vcard') {
+            // vCard als .vcf Datei zum Download anbieten
+            const blob = new Blob([currentData], { type: 'text/vcard;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'contact.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            
+            showAlert('vCard wird heruntergeladen. Öffnen Sie die Datei, um den Kontakt zu speichern.');
+        }
+    });
 });

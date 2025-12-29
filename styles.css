@@ -103,6 +103,23 @@ body{
 .generate-qr-code:hover{
     background-color: var(--blueColorHover);
 }
+.open-direct{
+    background-color: #10B981;
+    color:white;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 0.6rem;
+    height: 2.7rem;
+    width:100%;
+    border:none;
+    outline:none;
+    border-radius: 0.7rem;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+}
+.open-direct:hover{
+    background-color: #059669;
+}
 .qr-canvas{
     background-color: white;
     height: 15rem;
