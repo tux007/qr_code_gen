@@ -59,6 +59,14 @@ document.addEventListener("DOMContentLoaded", function () {
         urlFields.style.display = "none";
         vcardFields.style.display = "flex";
       }
+      
+      // Setze QR-Code und Buttons beim Moduswechsel zurück
+      qrImage.src = '';
+      qrImage.style.display = 'none';
+      openDirectBtn.style.display = 'none';
+      clearBtn.style.display = 'none';
+      currentData = null;
+      currentType = null;
     });
   });
 
